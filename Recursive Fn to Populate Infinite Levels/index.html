@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Recusive Fn for Infinite Levels</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+	<!-- CodePen: https://codepen.io/dks800/details/wvdaVKX -->	
+	<div id="stars"></div>
+	<div id="stars2"></div>
+	<div id="stars3"></div>
+
+	<ul id="parent"></ul>
+</body>
+<script type="text/javascript">
+	function renderTree(mydata, parentElement){
+        mydata.map(data => {
+            let myli = document.createElement("li");
+            myli.appendChild(document.createTextNode(data.title));
+            parentElement.appendChild(myli);
+            if(!data.child){
+                return;
+            } else {
+                renderTree(data.child, myli);
+            }
+        });
+    }
+
+    
+    let myData = [
+        {
+            title: "Gujarat",
+            child: [{title: "Ahmedabad", child:[{title: "Vastrapur"}]}, {title: "Surat"}]
+        },
+        {
+            title: "Andaman Nicobar"
+        },
+        {
+            title: "Uttar Pradesh",
+            child: [{title: "Lucknow"}]
+        }
+    ];
+    
+    renderTree(myData, document.getElementById("parent"));
+</script>
+</html>

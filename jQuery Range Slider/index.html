@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Slider</title>
+    <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+</head>
+<body>
+	<!-- CodePen: https://codepen.io/dks800/pen/NWpmGmw -->	
+    <p>Minumum: <span id="min"></span></p>
+    <p>Maximum: <span id="max"></span></p>
+    <div id="slider"></div>
+</body>
+<style type="text/css">
+	#slider {
+	    width: 100%;
+	}
+	body{
+	    text-align: center;
+	}
+</style>
+<script type="text/javascript">
+	$(
+        () => {
+            var x = $("#slider").slider({
+                range: true,
+              	animate: "slow",
+                min: 0,
+                max: 200,
+                values: [25, 100],
+                slide: (event, data)=>{
+                    $("#min").text(data.values[0]);
+                    $("#max").text(data.values[1]);
+                }
+            })
+          $("#min").text($("#slider").slider("values", 0));
+            $("#max").text($("#slider").slider("values", 1));
+        }
+    );
+</script>
+</html>

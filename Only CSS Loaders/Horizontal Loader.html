@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Horizontal Loader</title>
+	<style>
+		.container div {
+		  height: 10px;
+		  width: 50px;
+		  background: radial-gradient(green, white);
+		  border-radius: 10px;
+		  position: absolute;
+		  transition: all 0.2s;
+		  animation: run 1s linear infinite alternate;
+		  right: 0;
+		}
+		@keyframes run {
+		  0% {
+		    left: 0;
+		    width: 50px;
+		  }
+		  50% {
+		    width: 20px;
+		  }
+		  100% {
+		    left: 100%;
+		    width: 50px;
+		  }
+		}
+
+		/* optional css */
+		body {
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  min-height: 90vmin;
+		}
+		.container {
+		  height: 50px;
+		  width: 200px;
+		  position: absolute;
+		  text-align: center;
+		}
+
+	</style>
+</head>
+<body>
+	<!-- CodePen: https://codepen.io/dks800/pen/poPMVQm?editors=1100 -->	
+	<div class="container">
+		<h2>Only CSS Loader</h2>
+		<div></div>
+	</div>
+</body>
+</html>
